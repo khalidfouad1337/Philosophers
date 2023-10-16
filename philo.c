@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:37:38 by kfouad            #+#    #+#             */
-/*   Updated: 2023/10/16 14:51:39 by kfouad           ###   ########.fr       */
+/*   Updated: 2023/10/16 19:25:29 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,24 @@ int check_param(int ac ,char **av)
     return(1);
 }
 
-int fill_param(int ac, char **av)
+int ft_atoi_params(t_global *param, char **av)
 {
-    int i = 0;
-    t_global *params;
-    params->nb_philo = ft_atoi(av[1]);
-    params->tm_die = ft_atoi(av[2]);
-    params->tm_eat = ft_atoi(av[3]);
-    params->tm_sleep = ft_atoi(av[4]);
-    params->max_meals = ft_atoi(av[5]);
-    retuen (1);
+    param->nb_philo = ft_atoi(av[1]);
+    param->tm_die = ft_atoi(av[2]);
+    param->tm_eat = ft_atoi(av[3]);
+    param->tm_sleep = ft_atoi(av[4]);
+    if(av[5])
+        param->max_meals = ft_atoi(av[5]);
+    else
+        param->max_meals = -1;
+    return (1);
 }
 
 int main(int ac, char **av)
 {
-    if (check_param(ac, av) == -1 && fill_param(ac, av))
+    t_global param;
+    if (check_param(ac, av) == -1)
         return(write(1, "error\n",6), -1);
-        // printf("%lu and %lu\n", sizeof(useconds_t) , sizeof(unsigned long ));
+    ft_atoi_params(&param, av);
     return (0);
 }
