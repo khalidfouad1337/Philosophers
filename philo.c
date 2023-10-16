@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:37:38 by kfouad            #+#    #+#             */
-/*   Updated: 2023/10/16 14:02:50 by kfouad           ###   ########.fr       */
+/*   Updated: 2023/10/16 14:51:39 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,13 @@ int check_param(int ac ,char **av)
 int fill_param(int ac, char **av)
 {
     int i = 0;
-    t_global *tmp;
-    tmp->nb_philo = ft_atoi(av[1]);
-    tmp->tm_die = ft_atoi(av[2]);
-    tmp->tm_eat = ft_atoi(av[3]);
-    tmp->tm_sleep = ft_atoi(av)
-    retuen(1);
+    t_global *params;
+    params->nb_philo = ft_atoi(av[1]);
+    params->tm_die = ft_atoi(av[2]);
+    params->tm_eat = ft_atoi(av[3]);
+    params->tm_sleep = ft_atoi(av[4]);
+    params->max_meals = ft_atoi(av[5]);
+    retuen (1);
 }
 
 int main(int ac, char **av)
