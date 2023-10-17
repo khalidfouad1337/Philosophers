@@ -15,21 +15,24 @@
 
 #include <time.h>
 #include <unistd.h>
+#include <stdio.h>
 
-// typedef struct s_philo
-// {
-// 	int				id;
-// 	struct s_global	*data;
-// }	t_philo;
+typedef struct s_philo
+{
+	int				id;
+	int				meals;
+	struct s_params	*prm;
+}	t_philo;
 
-typedef struct s_global
+typedef struct s_params
 {
     int             tm_die;
 	int				nb_philo;
 	int				max_meals;
 	int				tm_sleep;
 	int		        tm_eat;
-}					t_global;
+	t_philo			ph[220];
+}t_params;
 
 int	ft_atoi(const char *str);
 

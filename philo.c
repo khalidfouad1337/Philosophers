@@ -20,46 +20,61 @@ int is_digit(char c)
         return 0;
 }
 
-int check_param(int ac ,char **av)
+int check_prms(int ac, char **av)
 {
     int i;
     int j;
     i = 1;
-    if(ac != 5 && ac != 6)
+    if (ac != 5 && ac != 6)
         return (-1);
-    while(av[i])
+    while (av[i])
     {
         j = 0;
-        while(av[i][j])
+        while (av[i][j])
         {
-            if(is_digit(av[i][j]) || (av[i][j] == '+' && is_digit(av[i][j+1])))
+            if (is_digit(av[i][j]) || (av[i][j] == '+' && is_digit(av[i][j + 1])))
                 j++;
             else
                 return (-1);
         }
         i++;
     }
-    return(1);
+    return (1);
 }
 
-int ft_atoi_params(t_global *param, char **av)
+void    fill_philo(t_params *prm)
 {
-    param->nb_philo = ft_atoi(av[1]);
-    param->tm_die = ft_atoi(av[2]);
-    param->tm_eat = ft_atoi(av[3]);
-    param->tm_sleep = ft_atoi(av[4]);
-    if(av[5])
-        param->max_meals = ft_atoi(av[5]);
+    int i;
+
+    i = 0;
+    while(i < prm->nb_philo)
+    {
+        prm->ph[i].id = i;
+        prm->ph[i].meals = 0;
+        prm->ph[i].prm = prm;
+        i++;
+    }
+}
+
+void fill_prms(t_params *prm, char **av)
+{
+    prm->nb_philo = ft_atoi(av[1]);
+    prm->tm_die = ft_atoi(av[2]);
+    prm->tm_eat = ft_atoi(av[3]);
+    prm->tm_sleep = ft_atoi(av[4]);
+    if (av[5])
+        prm->max_meals = ft_atoi(av[5]);
     else
-        param->max_meals = -1;
-    return (1);
+        prm->max_meals = -1;
+    fill_philo(prm);
 }
 
 int main(int ac, char **av)
 {
-    t_global param;
-    if (check_param(ac, av) == -1)
-        return(write(1, "error\n",6), -1);
-    ft_atoi_params(&param, av);
+    t_params prm;
+
+    if (check_prms(ac, av) == -1)
+        return (write(1, "error\n", 6), -1);
+    fill_prms(&prm, av);
     return (0);
 }
