@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:31:44 by kfouad            #+#    #+#             */
-/*   Updated: 2023/10/16 19:39:41 by kfouad           ###   ########.fr       */
+/*   Updated: 2023/10/19 18:43:41 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 #include <time.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <pthread.h>
+#include <sys/time.h>
+
 
 typedef struct s_philo
 {
+	pthread_t		thread_id;
+	pthread_mutex_t	lock;
 	int				id;
 	int				meals;
 	struct s_params	*prm;
@@ -26,11 +31,11 @@ typedef struct s_philo
 
 typedef struct s_params
 {
-    int             tm_die;
+    unsigned long   tm_die;
 	int				nb_philo;
 	int				max_meals;
-	int				tm_sleep;
-	int		        tm_eat;
+	unsigned long	tm_sleep;
+	unsigned long   tm_eat;
 	t_philo			ph[220];
 }t_params;
 
