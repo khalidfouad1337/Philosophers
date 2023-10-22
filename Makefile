@@ -13,7 +13,7 @@ RM 			=   rm -rf
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJES) 
-			$(CC) $(OBJES) -o $(NAME)
+			$(CC) $(FLAGS) $(OBJES) -o $(NAME)
 
 clean	:
 			$(RM) $(OBJES)
