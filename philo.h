@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/*		                                                                         */
+/*			                                                                      */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -13,26 +13,25 @@
 #ifndef PHILO_H
 # define PHILO_H
 
-#include <time.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <sys/time.h>
-
+# include <pthread.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/time.h>
+# include <time.h>
+# include <unistd.h>
 
 typedef struct s_philo
 {
-	pthread_t		thread_id;
-	pthread_mutex_t	lock;
-	int				id;
-	int				meals;
-	struct s_params	*prm;
-}	t_philo;
+	pthread_t			thread_id;
+	pthread_mutex_t		lock;
+	int					id;
+	int					meals;
+	struct s_params		*prm;
+}						t_philo;
 
 typedef struct s_params
 {
-    unsigned long		tm_die;
+	unsigned long		tm_die;
 	int					nb_philo;
 	int					max_meals;
 	unsigned long		tm_sleep;
@@ -44,9 +43,9 @@ typedef struct s_params
 	int					current_philo;
 	int					done;
 	pthread_mutex_t		mutex;
-	t_philo			ph[220];
-}t_params;
+	t_philo				ph[220];
+}						t_params;
 
-int	ft_atoi(const char *str);
+int						ft_atoi(const char *str);
 
 #endif

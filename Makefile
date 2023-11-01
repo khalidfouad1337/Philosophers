@@ -14,7 +14,7 @@ all		:	$(NAME)
 
 $(NAME)	:	$(OBJES) 
 			$(CC) $(FLAGS) $(OBJES) -o $(NAME)
-
+ 
 clean	:
 			$(RM) $(OBJES)
 
