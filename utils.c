@@ -6,7 +6,7 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:18:55 by kfouad            #+#    #+#             */
-/*   Updated: 2023/10/16 17:30:25 by kfouad           ###   ########.fr       */
+/*   Updated: 2023/11/01 12:59:55 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int n;
-	int na9is;
+	int	i;
+	int	n;
+	int	na9is;
 
 	i = 0;
 	n = 0;
@@ -36,4 +36,25 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (n * na9is);
+}
+
+unsigned long long	get_time(void)
+{
+	struct timeval	tm;
+
+	gettimeofday(&tm, NULL);
+	return (tm.tv_sec * 1000 + tm.tv_usec / 1000);
+}
+
+void	ft_usleep(unsigned long long msec)
+{
+	unsigned long long	start;
+
+	start = get_time();
+	while (1)
+	{
+		if (get_time() - start >= msec)
+			break ;
+		usleep(500);
+	}
 }

@@ -1,4 +1,4 @@
-SRCS		=   philo.c utils.c				
+SRCS		=   main.c init.c threads.c threads_utils.c utils.c		
 OBJES 		=   ${SRCS:.c=.o}
 
 NAME 		=   philo
@@ -24,6 +24,5 @@ fclean	:	clean
 re		:	clean $(NAME)
 
 run     : re
-		@./$(NAME)
 
 .PHONY	:	all clean fclean re

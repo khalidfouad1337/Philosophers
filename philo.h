@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*			                                                                      */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 19:31:44 by kfouad            #+#    #+#             */
-/*   Updated: 2023/10/21 11:49:39 by kfouad           ###   ########.fr       */
+/*   Created: 2023/11/01 13:07:49 by kfouad            #+#    #+#             */
+/*   Updated: 2023/11/01 13:39:52 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,15 @@ typedef struct s_params
 }						t_params;
 
 int						ft_atoi(const char *str);
+int						eating(t_philo *philo);
+void					main_thread(t_params *params);
+void					*action(void *arg);
+int						take_fork(t_philo *philo);
+int						put_fork(t_philo *philo);
+unsigned long long		get_time(void);
+void					ft_usleep(unsigned long long msec);
+void					fill_prms(t_params *prm, char **av);
+int						check_prms(int ac, char **av);
+void					destroy(t_params *prm);
 
 #endif
