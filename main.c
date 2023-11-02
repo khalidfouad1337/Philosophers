@@ -12,10 +12,10 @@
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	t_params	prm;
-	int			i;
+	t_params prm;
+	int i;
 
 	i = 0;
 	if (check_prms(ac, av) == -1)
