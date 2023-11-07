@@ -6,15 +6,15 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:53:01 by kfouad            #+#    #+#             */
-/*   Updated: 2023/11/01 13:03:00 by kfouad           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:50:25 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void *action(void *arg)
+void	*action(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 1)
@@ -40,7 +40,7 @@ void *action(void *arg)
 	return (NULL);
 }
 
-void main_thread(t_params *params)
+void	main_thread(t_params *params)
 {
 	while (1)
 	{
@@ -48,17 +48,17 @@ void main_thread(t_params *params)
 		if (params->done == params->nb_philo)
 		{
 			pthread_mutex_unlock(&params->mutex);
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(&params->mutex);
 		pthread_mutex_lock(&params->mutex);
 		if (get_time() - params->ltm >= params->tm_die)
 		{
-			printf("%lld %d dead\n", get_time() - params->start_time,
-				   params->current_philo);
+			printf("%lld %d dead\n", get_time() - params->start_time, \
+					params->current_philo);
 			params->dead = 1;
 			pthread_mutex_unlock(&params->mutex);
-			break;
+			break ;
 		}
 		pthread_mutex_unlock(&params->mutex);
 		usleep(50);

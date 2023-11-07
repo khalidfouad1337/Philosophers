@@ -6,16 +6,16 @@
 /*   By: kfouad <kfouad@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:48:10 by kfouad            #+#    #+#             */
-/*   Updated: 2023/11/01 13:40:38 by kfouad           ###   ########.fr       */
+/*   Updated: 2023/11/06 20:45:48 by kfouad           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_params prm;
-	int i;
+	t_params	prm;
+	int			i;
 
 	i = 0;
 	if (check_prms(ac, av) == -1)
